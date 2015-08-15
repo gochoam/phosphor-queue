@@ -3,6 +3,8 @@ phosphor-queue
 
 A generic FIFO queue data structure.
 
+[API Docs](http://phosphorjs.github.io/phosphor-queue/)
+
 
 Package Install
 ---------------
@@ -71,3 +73,79 @@ Earlier versions may also work, but come with no guarantees.
 
 Usage Examples
 --------------
+```typescript
+import { Queue } from 'phosphor-queue';
+
+// ES5 equivalent
+var Queue = require('phosphor-queue').Queue;
+
+
+var q = new Queue<number>([0, 1, 2, 3]);
+
+// ES5 equivalent
+var q = new Queue([0, 1, 2, 3]);
+
+
+q.front;  // 0
+q.back;   // 3
+q.size;   // 4
+q.empty;  // false
+
+
+q.popFront();  // 0
+q.popFront();  // 1
+q.popFront();  // 2
+q.popFront();  // 3
+q.popFront();  // undefined
+q.front;       // undefined
+q.back;        // undefined
+q.size;        // 0
+q.empty;       // true
+
+
+q.pushBack(42);
+q.pushBack(43);
+q.pushBack(44);
+q.pushBack(45);
+
+
+q.toArray();  // [42, 43, 44, 45]
+
+
+q.clear();
+q.size;     // 0
+q.empty;    // true
+
+
+q.pushBack(42);
+q.pushBack(43);
+q.pushBack(44);
+q.pushBack(45);
+
+
+q.some(v => v < 40);  // false
+q.some(v => v > 44);  // true
+
+
+q.every(v => v > 40);  // true
+q.every(v => v > 44);  // false
+
+
+q.filter(v => v < 40);  // []
+q.filter(v => v > 44);  // [45]
+
+
+q.map(v => v * 2);  // [84, 86, 88, 90]
+
+
+q.forEach((v, i) => {
+  console.log(v, i);
+});
+
+
+var index = forEach((v, i) => {
+  if (v === 43) return i;
+});
+
+index;  // 1
+```
