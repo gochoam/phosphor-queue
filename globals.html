@@ -64,131 +64,24 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<h1 id="phosphor-queue">phosphor-queue</h1>
-				<p>A generic FIFO queue data structure.</p>
-				<p><a href="http://phosphorjs.github.io/phosphor-queue/">API Docs</a></p>
-				<h2 id="package-install">Package Install</h2>
-				<p><strong>Prerequisites</strong></p>
-				<ul>
-					<li><a href="http://nodejs.org/">node</a></li>
-				</ul>
-				<pre><code class="lang-bash">npm install --save phosphor-queue
-</code></pre>
-				<h2 id="source-build">Source Build</h2>
-				<p><strong>Prerequisites</strong></p>
-				<ul>
-					<li><a href="http://git-scm.com/">git</a></li>
-					<li><a href="http://nodejs.org/">node</a></li>
-				</ul>
-				<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/phosphorjs/phosphor-queue.git
-<span class="hljs-built_in">cd</span> phosphor-queue
-npm install
-</code></pre>
-				<p><strong>Rebuild</strong></p>
-				<pre><code class="lang-bash">npm run clean
-npm run build
-</code></pre>
-				<h2 id="run-tests">Run Tests</h2>
-				<p>Follow the source build instructions first.</p>
-				<pre><code class="lang-bash">npm <span class="hljs-built_in">test</span>
-</code></pre>
-				<h2 id="build-docs">Build Docs</h2>
-				<p>Follow the source build instructions first.</p>
-				<pre><code class="lang-bash">npm run docs
-</code></pre>
-				<p>Navigate to <code>docs/index.html</code>.</p>
-				<h2 id="supported-runtimes">Supported Runtimes</h2>
-				<p>The runtime versions which are currently <em>known to work</em> are listed below.
-				Earlier versions may also work, but come with no guarantees.</p>
-				<ul>
-					<li>Node 0.12.7+</li>
-					<li>IE 11+</li>
-					<li>Firefox 32+</li>
-					<li>Chrome 38+</li>
-				</ul>
-				<h2 id="usage-examples">Usage Examples</h2>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Queue } from <span class="hljs-string">'phosphor-queue'</span>;
-
-<span class="hljs-comment">// ES5 equivalent</span>
-<span class="hljs-keyword">var</span> Queue = <span class="hljs-built_in">require</span>(<span class="hljs-string">'phosphor-queue'</span>).Queue;
-
-
-<span class="hljs-keyword">var</span> q = <span class="hljs-keyword">new</span> Queue&lt;<span class="hljs-built_in">number</span>&gt;([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
-
-<span class="hljs-comment">// ES5 equivalent</span>
-<span class="hljs-keyword">var</span> q = <span class="hljs-keyword">new</span> Queue([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
-
-
-q.front;  <span class="hljs-comment">// 0</span>
-q.back;   <span class="hljs-comment">// 3</span>
-q.size;   <span class="hljs-comment">// 4</span>
-q.empty;  <span class="hljs-comment">// false</span>
-
-
-q.popFront();  <span class="hljs-comment">// 0</span>
-q.popFront();  <span class="hljs-comment">// 1</span>
-q.popFront();  <span class="hljs-comment">// 2</span>
-q.popFront();  <span class="hljs-comment">// 3</span>
-q.popFront();  <span class="hljs-comment">// undefined</span>
-q.front;       <span class="hljs-comment">// undefined</span>
-q.back;        <span class="hljs-comment">// undefined</span>
-q.size;        <span class="hljs-comment">// 0</span>
-q.empty;       <span class="hljs-comment">// true</span>
-
-
-q.pushBack(<span class="hljs-number">42</span>);
-q.pushBack(<span class="hljs-number">43</span>);
-q.pushBack(<span class="hljs-number">44</span>);
-q.pushBack(<span class="hljs-number">45</span>);
-
-
-q.toArray();  <span class="hljs-comment">// [42, 43, 44, 45]</span>
-
-
-q.clear();
-q.size;     <span class="hljs-comment">// 0</span>
-q.empty;    <span class="hljs-comment">// true</span>
-
-
-q.pushBack(<span class="hljs-number">42</span>);
-q.pushBack(<span class="hljs-number">43</span>);
-q.pushBack(<span class="hljs-number">44</span>);
-q.pushBack(<span class="hljs-number">45</span>);
-
-
-q.some(v =&gt; v &lt; <span class="hljs-number">40</span>);  <span class="hljs-comment">// false</span>
-q.some(v =&gt; v &gt; <span class="hljs-number">44</span>);  <span class="hljs-comment">// true</span>
-
-
-q.every(v =&gt; v &gt; <span class="hljs-number">40</span>);  <span class="hljs-comment">// true</span>
-q.every(v =&gt; v &gt; <span class="hljs-number">44</span>);  <span class="hljs-comment">// false</span>
-
-
-q.filter(v =&gt; v &lt; <span class="hljs-number">40</span>);  <span class="hljs-comment">// []</span>
-q.filter(v =&gt; v &gt; <span class="hljs-number">44</span>);  <span class="hljs-comment">// [45]</span>
-
-
-q.map(v =&gt; v * <span class="hljs-number">2</span>);  <span class="hljs-comment">// [84, 86, 88, 90]</span>
-
-
-q.forEach((v, i) =&gt; {
-  <span class="hljs-built_in">console</span>.log(v, i);
-});
-
-
-<span class="hljs-keyword">var</span> index = forEach((v, i) =&gt; {
-  <span class="hljs-keyword">if</span> (v === <span class="hljs-number">43</span>) <span class="hljs-keyword">return</span> i;
-});
-
-index;  <span class="hljs-comment">// 1</span>
-</code></pre>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/queue.html" class="tsd-kind-icon">Queue</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
