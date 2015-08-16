@@ -92,21 +92,21 @@ q.size;   // 4
 q.empty;  // false
 
 
-q.popFront();  // 0
-q.popFront();  // 1
-q.popFront();  // 2
-q.popFront();  // 3
-q.popFront();  // undefined
-q.front;       // undefined
-q.back;        // undefined
-q.size;        // 0
-q.empty;       // true
+q.pop();  // 0
+q.pop();  // 1
+q.pop();  // 2
+q.pop();  // 3
+q.pop();  // undefined
+q.front;  // undefined
+q.back;   // undefined
+q.size;   // 0
+q.empty;  // true
 
 
-q.pushBack(42);
-q.pushBack(43);
-q.pushBack(44);
-q.pushBack(45);
+q.push(42);
+q.push(43);
+q.push(44);
+q.push(45);
 
 
 q.toArray();  // [42, 43, 44, 45]
@@ -117,10 +117,10 @@ q.size;     // 0
 q.empty;    // true
 
 
-q.pushBack(42);
-q.pushBack(43);
-q.pushBack(44);
-q.pushBack(45);
+q.push(42);
+q.push(43);
+q.push(44);
+q.push(45);
 
 
 q.some(v => v < 40);  // false

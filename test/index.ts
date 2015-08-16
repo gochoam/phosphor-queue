@@ -36,13 +36,13 @@ describe('phosphor-queue', () => {
       it('should return the number of items in the queue', () => {
         var q = new Queue<number>();
         expect(q.size).to.be(0);
-        q.pushBack(0);
+        q.push(0);
         expect(q.size).to.be(1);
-        q.pushBack(0);
+        q.push(0);
         expect(q.size).to.be(2);
-        q.popFront();
+        q.pop();
         expect(q.size).to.be(1);
-        q.popFront();
+        q.pop();
         expect(q.size).to.be(0);
       });
 
@@ -54,13 +54,13 @@ describe('phosphor-queue', () => {
       it('should indicate whether the queue is empty', () => {
         var q = new Queue<number>();
         expect(q.empty).to.be(true);
-        q.pushBack(0);
+        q.push(0);
         expect(q.empty).to.be(false);
-        q.pushBack(0);
+        q.push(0);
         expect(q.empty).to.be(false);
-        q.popFront();
+        q.pop();
         expect(q.empty).to.be(false);
-        q.popFront();
+        q.pop();
         expect(q.empty).to.be(true);
       });
 
@@ -77,13 +77,13 @@ describe('phosphor-queue', () => {
       it('should return the value at the front of the queue', () => {
         var q = new Queue<number>([0, 1, 2, 3]);
         expect(q.front).to.be(0);
-        q.popFront();
+        q.pop();
         expect(q.front).to.be(1);
-        q.popFront();
+        q.pop();
         expect(q.front).to.be(2);
-        q.popFront();
+        q.pop();
         expect(q.front).to.be(3);
-        q.popFront();
+        q.pop();
         expect(q.front).to.be(void 0);
       });
 
@@ -100,46 +100,46 @@ describe('phosphor-queue', () => {
       it('should return the value at the back of the queue', () => {
         var q = new Queue<number>();
         expect(q.back).to.be(void 0);
-        q.pushBack(0);
+        q.push(0);
         expect(q.back).to.be(0);
-        q.pushBack(1);
+        q.push(1);
         expect(q.back).to.be(1);
-        q.pushBack(2);
+        q.push(2);
         expect(q.back).to.be(2);
-        q.pushBack(3);
+        q.push(3);
         expect(q.back).to.be(3);
       });
 
     });
 
 
-    describe('#pushBack()', () => {
+    describe('#push()', () => {
 
       it('should add the value to the back of the queue', () => {
         var q = new Queue<number>();
-        q.pushBack(0);
-        q.pushBack(1);
-        q.pushBack(2);
-        q.pushBack(3);
+        q.push(0);
+        q.push(1);
+        q.push(2);
+        q.push(3);
         expect(q.toArray()).to.eql([0, 1, 2, 3]);
       });
 
     });
 
 
-    describe('#popFront()', () => {
+    describe('#pop()', () => {
 
       it('should return `undefined` if the queue is empty', () => {
         var q = new Queue<number>();
-        expect(q.popFront()).to.be(void 0);
+        expect(q.pop()).to.be(void 0);
       });
 
       it('should remove the value from the front of the queue', () => {
         var q = new Queue<number>([0, 1, 2, 3]);
-        expect(q.popFront()).to.be(0);
-        expect(q.popFront()).to.be(1);
-        expect(q.popFront()).to.be(2);
-        expect(q.popFront()).to.be(3);
+        expect(q.pop()).to.be(0);
+        expect(q.pop()).to.be(1);
+        expect(q.pop()).to.be(2);
+        expect(q.pop()).to.be(3);
         expect(q.size).to.be(0);
       });
 

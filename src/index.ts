@@ -18,17 +18,17 @@
  * #### Example
  * ```typescript
  * var q = new Queue<number>([0, 1, 2]);
- * q.size;         // 3
- * q.empty;        // false
- * q.popFront();   // 0
- * q.popFront();   // 1
- * q.pushBack(42); // undefined
- * q.size;         // 2
- * q.popFront();   // 2
- * q.popFront();   // 42
- * q.popFront();   // undefined
- * q.size;         // 0
- * q.empty;        // true
+ * q.size;      // 3
+ * q.empty;     // false
+ * q.pop();     // 0
+ * q.pop();     // 1
+ * q.push(42);  // undefined
+ * q.size;      // 2
+ * q.pop();     // 2
+ * q.pop();     // 42
+ * q.pop();     // undefined
+ * q.size;      // 0
+ * q.empty;     // true
  * ```
  */
 export
@@ -39,7 +39,7 @@ class Queue<T> {
    * @param items - The initial items for the queue.
    */
   constructor(items?: T[]) {
-    if (items) items.forEach(item => this.pushBack(item));
+    if (items) items.forEach(item => this.push(item));
   }
 
   /**
@@ -94,7 +94,7 @@ class Queue<T> {
    * #### Notes
    * This has `O(1)` complexity.
    */
-  pushBack(value: T): void {
+  push(value: T): void {
     var link: IQueueLink<T> = { next: null, value: value };
     if (this._back === null) {
       this._front = link;
@@ -116,7 +116,7 @@ class Queue<T> {
    *
    * If the queue is empty, the return value will be `undefined`.
    */
-  popFront(): T {
+  pop(): T {
     var link = this._front;
     if (link === null) {
       return void 0;
