@@ -132,10 +132,79 @@ class Queue<T> {
   }
 
   /**
+   * Remove the first occurrence of a value from the queue.
+   *
+   * @param value - The value to remove from the queue.
+   *
+   * @returns `true` on success, `false` otherwise.
+   *
+   * #### Notes
+   * This has `O(N)` complexity.
+   */
+  remove(value: T): boolean {
+    var link = this._front;
+    var prev: IQueueLink<T> = null;
+    while (link !== null) {
+      if (link.value === value) {
+        if (prev === null) {
+          this._front = link.next;
+        } else {
+          prev.next = link.next;
+        }
+        if (link.next === null) {
+          this._back = prev;
+        }
+        this._size--;
+        return true;
+      }
+      prev = link;
+      link = link.next;
+    }
+    return false;
+  }
+
+  /**
+   * Remove all occurrences of a value from the queue.
+   *
+   * @param value - The value to remove from the queue.
+   *
+   * @returns The number of occurrences removed.
+   *
+   * #### Notes
+   * This has `O(N)` complexity.
+   */
+  removeAll(value: T): number {
+    var count = 0;
+    var link = this._front;
+    var prev: IQueueLink<T> = null;
+    while (link !== null) {
+      if (link.value === value) {
+        count++;
+        this._size--;
+      } else if (prev === null) {
+        this._front = link;
+        prev = link;
+      } else {
+        prev.next = link;
+        prev = link
+      }
+      link = link.next;
+    }
+    if (!prev) {
+      this._front = null;
+      this._back = null;
+    } else {
+      prev.next = null;
+      this._back = prev;
+    }
+    return count;
+  }
+
+  /**
    * Remove all values from the queue.
    *
    * #### Notes
-   * This has `O(1)` complexity (GC costs excluded).
+   * This has `O(1)` complexity.
    */
   clear(): void {
     this._size = 0;

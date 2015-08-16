@@ -146,6 +146,95 @@ describe('phosphor-queue', () => {
     });
 
 
+    describe('#remove()', () => {
+
+      it('should remove the first occurrence of a value', () => {
+        var q = new Queue<number>([0, 1, 2, 1, 3]);
+        q.remove(1);
+        expect(q.front).to.be(0);
+        expect(q.back).to.be(3);
+        expect(q.size).to.be(4);
+        expect(q.toArray()).to.eql([0, 2, 1, 3]);
+
+        q.remove(3);
+        expect(q.front).to.be(0);
+        expect(q.back).to.be(1);
+        expect(q.size).to.be(3);
+        expect(q.toArray()).to.eql([0, 2, 1]);
+
+        q.remove(0);
+        expect(q.front).to.be(2);
+        expect(q.back).to.be(1);
+        expect(q.size).to.be(2);
+        expect(q.toArray()).to.eql([2, 1]);
+
+        q.remove(1);
+        expect(q.front).to.be(2);
+        expect(q.back).to.be(2);
+        expect(q.size).to.be(1);
+        expect(q.toArray()).to.eql([2]);
+
+        q.remove(2);
+        expect(q.front).to.be(void 0);
+        expect(q.back).to.be(void 0);
+        expect(q.size).to.be(0);
+        expect(q.toArray()).to.eql([]);
+      });
+
+      it('should return `true` on success, `false` otherwise', () => {
+        var q = new Queue<number>([0, 1, 2, 1, 3]);
+        expect(q.remove(1)).to.be(true);
+        expect(q.remove(1)).to.be(true);
+        expect(q.remove(1)).to.be(false);
+        expect(q.toArray()).to.eql([0, 2, 3]);
+      });
+
+    });
+
+
+    describe('#removeAll()', () => {
+
+      it('should remove all occurrences of a value', () => {
+        var q1 = new Queue<number>([0, 1, 2, 1, 3]);
+        q1.removeAll(1);
+        expect(q1.front).to.be(0);
+        expect(q1.back).to.be(3);
+        expect(q1.size).to.be(3);
+        expect(q1.toArray()).to.eql([0, 2, 3]);
+
+        var q2 = new Queue<number>([0, 1, 2, 1, 0]);
+        q2.removeAll(0);
+        expect(q2.front).to.be(1);
+        expect(q2.back).to.be(1);
+        expect(q2.size).to.be(3);
+        expect(q2.toArray()).to.eql([1, 2, 1]);
+
+        q2.removeAll(1);
+        expect(q2.front).to.be(2);
+        expect(q2.back).to.be(2);
+        expect(q2.size).to.be(1);
+        expect(q2.toArray()).to.eql([2]);
+
+        q2.removeAll(2);
+        expect(q2.front).to.be(void 0);
+        expect(q2.back).to.be(void 0);
+        expect(q2.size).to.be(0);
+        expect(q2.toArray()).to.eql([]);
+      });
+
+      it('should return the number of occurrences removed', () => {
+        var q1 = new Queue<number>([0, 1, 2, 1, 3]);
+        expect(q1.removeAll(1)).to.be(2);
+        expect(q1.removeAll(9)).to.be(0);
+
+        var q2 = new Queue<number>([0, 1, 0, 1, 0]);
+        expect(q2.removeAll(0)).to.be(3);
+        expect(q2.removeAll(9)).to.be(0);
+      });
+
+    });
+
+
     describe('#clear()', () => {
 
       it('should remove all values from the queue', () => {

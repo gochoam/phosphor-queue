@@ -106,10 +106,18 @@ q.empty;  // true
 q.push(42);
 q.push(43);
 q.push(44);
+q.push(44);
 q.push(45);
 
 
-q.toArray();  // [42, 43, 44, 45]
+q.toArray();  // [42, 43, 44, 44, 45]
+
+
+q.remove(42);     // true
+q.remove(19);     // false
+q.removeAll(44);  // 2
+q.removeAll(19);  // 0
+q.toArray();      // [43, 45]
 
 
 q.clear();
