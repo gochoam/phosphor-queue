@@ -126,24 +126,32 @@ q.size;   <span class="hljs-comment">// 4</span>
 q.empty;  <span class="hljs-comment">// false</span>
 
 
-q.popFront();  <span class="hljs-comment">// 0</span>
-q.popFront();  <span class="hljs-comment">// 1</span>
-q.popFront();  <span class="hljs-comment">// 2</span>
-q.popFront();  <span class="hljs-comment">// 3</span>
-q.popFront();  <span class="hljs-comment">// undefined</span>
-q.front;       <span class="hljs-comment">// undefined</span>
-q.back;        <span class="hljs-comment">// undefined</span>
-q.size;        <span class="hljs-comment">// 0</span>
-q.empty;       <span class="hljs-comment">// true</span>
+q.pop();  <span class="hljs-comment">// 0</span>
+q.pop();  <span class="hljs-comment">// 1</span>
+q.pop();  <span class="hljs-comment">// 2</span>
+q.pop();  <span class="hljs-comment">// 3</span>
+q.pop();  <span class="hljs-comment">// undefined</span>
+q.front;  <span class="hljs-comment">// undefined</span>
+q.back;   <span class="hljs-comment">// undefined</span>
+q.size;   <span class="hljs-comment">// 0</span>
+q.empty;  <span class="hljs-comment">// true</span>
 
 
-q.pushBack(<span class="hljs-number">42</span>);
-q.pushBack(<span class="hljs-number">43</span>);
-q.pushBack(<span class="hljs-number">44</span>);
-q.pushBack(<span class="hljs-number">45</span>);
+q.push(<span class="hljs-number">42</span>);
+q.push(<span class="hljs-number">43</span>);
+q.push(<span class="hljs-number">44</span>);
+q.push(<span class="hljs-number">44</span>);
+q.push(<span class="hljs-number">45</span>);
 
 
-q.toArray();  <span class="hljs-comment">// [42, 43, 44, 45]</span>
+q.toArray();  <span class="hljs-comment">// [42, 43, 44, 44, 45]</span>
+
+
+q.remove(<span class="hljs-number">42</span>);     <span class="hljs-comment">// true</span>
+q.remove(<span class="hljs-number">19</span>);     <span class="hljs-comment">// false</span>
+q.removeAll(<span class="hljs-number">44</span>);  <span class="hljs-comment">// 2</span>
+q.removeAll(<span class="hljs-number">19</span>);  <span class="hljs-comment">// 0</span>
+q.toArray();      <span class="hljs-comment">// [43, 45]</span>
 
 
 q.clear();
@@ -151,10 +159,10 @@ q.size;     <span class="hljs-comment">// 0</span>
 q.empty;    <span class="hljs-comment">// true</span>
 
 
-q.pushBack(<span class="hljs-number">42</span>);
-q.pushBack(<span class="hljs-number">43</span>);
-q.pushBack(<span class="hljs-number">44</span>);
-q.pushBack(<span class="hljs-number">45</span>);
+q.push(<span class="hljs-number">42</span>);
+q.push(<span class="hljs-number">43</span>);
+q.push(<span class="hljs-number">44</span>);
+q.push(<span class="hljs-number">45</span>);
 
 
 q.some(v =&gt; v &lt; <span class="hljs-number">40</span>);  <span class="hljs-comment">// false</span>
