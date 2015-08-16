@@ -1,4 +1,7 @@
-require('dts-bundle').bundle({
+require('dts-generator').generate({
   name: 'phosphor-queue',
-  main: 'lib/index.d.ts',
+  main: 'phosphor-queue/index',
+  baseDir: 'lib',
+  files: ['index.d.ts'],
+  out: 'lib/phosphor-queue.d.ts',
 });
