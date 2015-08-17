@@ -73,24 +73,18 @@ Earlier versions may also work, but come with no guarantees.
 
 Usage Examples
 --------------
+**Note:** This module is fully compatible with Node/Babel/ES6/ES5. Simply
+omit the type declarations when using a language other than TypeScript.
+
 ```typescript
 import { Queue } from 'phosphor-queue';
 
-// ES5 equivalent
-var Queue = require('phosphor-queue').Queue;
-
-
 var q = new Queue<number>([0, 1, 2, 3]);
-
-// ES5 equivalent
-var q = new Queue([0, 1, 2, 3]);
-
 
 q.front;  // 0
 q.back;   // 3
 q.size;   // 4
 q.empty;  // false
-
 
 q.pop();  // 0
 q.pop();  // 1
@@ -102,16 +96,13 @@ q.back;   // undefined
 q.size;   // 0
 q.empty;  // true
 
-
 q.push(42);
 q.push(43);
 q.push(44);
 q.push(44);
 q.push(45);
 
-
 q.toArray();  // [42, 43, 44, 44, 45]
-
 
 q.remove(42);     // true
 q.remove(19);     // false
@@ -119,37 +110,29 @@ q.removeAll(44);  // 2
 q.removeAll(19);  // 0
 q.toArray();      // [43, 45]
 
-
 q.clear();
 q.size;     // 0
 q.empty;    // true
-
 
 q.push(42);
 q.push(43);
 q.push(44);
 q.push(45);
 
-
 q.some(v => v < 40);  // false
 q.some(v => v > 44);  // true
-
 
 q.every(v => v > 40);  // true
 q.every(v => v > 44);  // false
 
-
 q.filter(v => v < 40);  // []
 q.filter(v => v > 44);  // [45]
 
-
 q.map(v => v * 2);  // [84, 86, 88, 90]
-
 
 q.forEach((v, i) => {
   console.log(v, i);
 });
-
 
 var index = forEach((v, i) => {
   if (v === 43) return i;
