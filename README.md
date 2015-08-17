@@ -136,7 +136,7 @@ q.forEach((v, i) => {
   console.log(v, i);
 });
 
-var index = forEach((v, i) => {
+var index = q.forEach((v, i) => {
   if (v === 43) return i;
 });
 
