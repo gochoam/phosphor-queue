@@ -73,6 +73,7 @@ Earlier versions may also work, but come with no guarantees.
 
 Usage Examples
 --------------
+
 **Note:** This module is fully compatible with Node/Babel/ES6/ES5. Simply
 omit the type declarations when using a language other than TypeScript.
 
