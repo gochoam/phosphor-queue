@@ -80,6 +80,7 @@ omit the type declarations when using a language other than TypeScript.
 ```typescript
 import { Queue } from 'phosphor-queue';
 
+
 var q = new Queue<number>([0, 1, 2, 3]);
 
 q.front;  // 0
