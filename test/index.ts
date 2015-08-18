@@ -30,7 +30,6 @@ describe('phosphor-queue', () => {
 
     }),
 
-
     describe('#size', () => {
 
       it('should return the number of items in the queue', () => {
@@ -48,7 +47,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#empty', () => {
 
       it('should indicate whether the queue is empty', () => {
@@ -65,7 +63,6 @@ describe('phosphor-queue', () => {
       });
 
     });
-
 
     describe('#front', () => {
 
@@ -89,7 +86,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#back', () => {
 
       it('should return `undefined` if the queue is empty', () => {
@@ -112,7 +108,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#push()', () => {
 
       it('should add the value to the back of the queue', () => {
@@ -125,7 +120,6 @@ describe('phosphor-queue', () => {
       });
 
     });
-
 
     describe('#pop()', () => {
 
@@ -144,7 +138,6 @@ describe('phosphor-queue', () => {
       });
 
     });
-
 
     describe('#remove()', () => {
 
@@ -191,7 +184,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#removeAll()', () => {
 
       it('should remove all occurrences of a value', () => {
@@ -234,7 +226,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#clear()', () => {
 
       it('should remove all values from the queue', () => {
@@ -248,7 +239,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#toArray()', () => {
 
       it('should create an array from all values in the queue', () => {
@@ -257,7 +247,6 @@ describe('phosphor-queue', () => {
       });
 
     });
-
 
     describe('#some()', () => {
 
@@ -280,7 +269,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#every()', () => {
 
       it('should return `true` if all values match a predicate', () => {
@@ -302,7 +290,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#filter()', () => {
 
       it('should return the filtered array of values', () => {
@@ -319,7 +306,6 @@ describe('phosphor-queue', () => {
 
     });
 
-
     describe('#map()', () => {
 
       it('should return the mapped array of values', () => {
@@ -335,7 +321,6 @@ describe('phosphor-queue', () => {
       });
 
     });
-
 
     describe('#forEach()', () => {
 
