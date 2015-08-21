@@ -3,7 +3,7 @@ phosphor-queue
 
 A generic FIFO queue data structure.
 
-[API Docs](http://phosphorjs.github.io/phosphor-queue/)
+[API Docs](http://phosphorjs.github.io/phosphor-queue/api/)
 
 
 Package Install
