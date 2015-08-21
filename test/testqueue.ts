@@ -9,7 +9,9 @@
 
 import expect = require('expect.js');
 
-import { Queue } from '../lib/index';
+import {
+  Queue
+} from '../lib/index';
 
 
 describe('phosphor-queue', () => {
