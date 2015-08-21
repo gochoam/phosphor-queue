@@ -3,7 +3,7 @@
   "target": "ES5",
   "excludeNotExported": true,
   "mode": "file",
-  "out": "docs",
+  "out": "docs/api",
   "src": [
     "src/index.ts"
   ]
