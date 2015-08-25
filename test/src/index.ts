@@ -18,7 +18,7 @@ describe('phosphor-queue', () => {
 
   describe('Queue', () => {
 
-    describe('constructor', () => {
+    describe('#constructor()', () => {
 
       it('should accept no arguments', () => {
         var q = new Queue<number>();
