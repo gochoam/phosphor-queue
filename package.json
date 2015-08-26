@@ -1,6 +1,6 @@
 {
   "name": "phosphor-queue",
-  "version": "0.9.6",
+  "version": "1.0.0",
   "description": "A generic FIFO queue data structure",
   "main": "lib/index.js",
   "typescript": {
