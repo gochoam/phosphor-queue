@@ -1,6 +1,9 @@
 phosphor-queue
 ==============
 
+[![Build Status](https://travis-ci.org/phosphorjs/phosphor-queue.svg)](https://travis-ci.org/phosphorjs/phosphor-queue?branch=master)
+[![Coverage Status](https://coveralls.io/repos/phosphorjs/phosphor-queue/badge.svg?branch=master&service=github)](https://coveralls.io/github/phosphorjs/phosphor-queue?branch=master)
+
 A generic FIFO queue data structure.
 
 [API Docs](http://phosphorjs.github.io/phosphor-queue/api/)
