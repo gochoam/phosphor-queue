@@ -17,7 +17,7 @@
  *
  * #### Example
  * ```typescript
- * var q = new Queue<number>([0, 1, 2]);
+ * let q = new Queue<number>([0, 1, 2]);
  * q.size;      // 3
  * q.empty;     // false
  * q.pop();     // 0
@@ -95,7 +95,7 @@ class Queue<T> {
    * This has `O(1)` complexity.
    */
   push(value: T): void {
-    var link: IQueueLink<T> = { next: null, value: value };
+    let link: IQueueLink<T> = { next: null, value: value };
     if (this._back === null) {
       this._front = link;
       this._back = link;
@@ -117,7 +117,7 @@ class Queue<T> {
    * If the queue is empty, the return value will be `undefined`.
    */
   pop(): T {
-    var link = this._front;
+    let link = this._front;
     if (link === null) {
       return void 0;
     }
@@ -142,8 +142,8 @@ class Queue<T> {
    * This has `O(N)` complexity.
    */
   remove(value: T): boolean {
-    var link = this._front;
-    var prev: IQueueLink<T> = null;
+    let link = this._front;
+    let prev: IQueueLink<T> = null;
     while (link !== null) {
       if (link.value === value) {
         if (prev === null) {
@@ -174,9 +174,9 @@ class Queue<T> {
    * This has `O(N)` complexity.
    */
   removeAll(value: T): number {
-    var count = 0;
-    var link = this._front;
-    var prev: IQueueLink<T> = null;
+    let count = 0;
+    let link = this._front;
+    let prev: IQueueLink<T> = null;
     while (link !== null) {
       if (link.value === value) {
         count++;
@@ -221,8 +221,8 @@ class Queue<T> {
    * This has `O(N)` complexity.
    */
   toArray(): T[] {
-    var result = new Array<T>(this._size);
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
+    let result = new Array<T>(this._size);
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
       result[i] = link.value;
     }
     return result;
@@ -243,7 +243,7 @@ class Queue<T> {
    * iterating.
    */
   some(pred: (value: T, index: number) => boolean): boolean {
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
       if (pred(link.value, i)) return true;
     }
     return false;
@@ -264,7 +264,7 @@ class Queue<T> {
    * iterating.
    */
   every(pred: (value: T, index: number) => boolean): boolean {
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
       if (!pred(link.value, i)) return false;
     }
     return true;
@@ -284,8 +284,8 @@ class Queue<T> {
    * iterating.
    */
   filter(pred: (value: T, index: number) => boolean): T[] {
-    var result: T[] = [];
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
+    let result: T[] = [];
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
       if (pred(link.value, i)) result.push(link.value);
     }
     return result;
@@ -305,8 +305,8 @@ class Queue<T> {
    * iterating.
    */
   map<U>(callback: (value: T, index: number) => U): U[] {
-    var result = new Array<U>(this._size);
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
+    let result = new Array<U>(this._size);
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
       result[i] = callback(link.value, i);
     }
     return result;
@@ -330,8 +330,8 @@ class Queue<T> {
    * iterating.
    */
   forEach<U>(callback: (value: T, index: number) => U): U {
-    for (var i = 0, link = this._front; link !== null; link = link.next, ++i) {
-      var result = callback(link.value, i);
+    for (let i = 0, link = this._front; link !== null; link = link.next, ++i) {
+      let result = callback(link.value, i);
       if (result !== void 0) return result;
     }
     return void 0;

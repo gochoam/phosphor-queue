@@ -95,7 +95,7 @@ omit the type declarations when using a language other than TypeScript.
 import { Queue } from 'phosphor-queue';
 
 
-var q = new Queue<number>([0, 1, 2, 3]);
+let q = new Queue<number>([0, 1, 2, 3]);
 
 q.front;  // 0
 q.back;   // 3
@@ -150,7 +150,7 @@ q.forEach((v, i) => {
   console.log(v, i);
 });
 
-var index = q.forEach((v, i) => {
+let index = q.forEach((v, i) => {
   if (v === 43) return i;
 });
 
