@@ -6,14 +6,11 @@ env:
   matrix:
     - GROUP=
   global:
+    - GHREPO=github.com/phosphorjs/phosphor-queue
     - secure: UOito5i9j1oDvIg+feeGnCkR8xyecZKtV4uqxTiD4ql+VIeJDTzYJjqJgbiVgiCgWIX7w/mcfJGaYktjkK1TKs5OjCljKlS+32b7GUomAyR1cGSUcQbCo0KwYQJB4XwxjJutbxlkdYkdZWPmsAnAiPS/8f4+6B0BjmG3pXwaMgKBFtgo4/hwoT6fY05Iy83JXyddTaZKP5dyxRnncTHVFyvztPoFC24R6f4S1K8epwoG93/703Vlw/U2mosw2/YN5iQ/KkBfnSACPA4MDk/L/MyBu1hcN2SL+u+jhRw0t3uE3bdXumsn4hA6NGGGe/AflWUfOT19dVqJplPwQ6CgaBiFxfGbBAZTVvDt3WDvQ+r1bwQi582Xe2OoD1sNg9wGGUmAeV3nPX5q9DaDH89eyIeib8Hsr+YxXCTx/hWz/8OAGtyHSJQOzcDT1BHkAyiBtZ8i9dZfnWGvzl/TxrFIEPnGeC0Bg+/hK8q/r+rgDzzvHd1Zg7ct69TiLVmosVKAMzy9I0Safd6zHMc6mQOGBl/KWnxMPGnZmcJmr2V/LSmH6Nu7dDwF7X6VEIj+hC4EDMx4QMQXh2WTrv+q3aWqWGlFS9UOcWsmD3M1bYjFpcKu7DYozCuZ9TSyIAI7Y/dZUVY8r8tuSnz7pBeE1UliVRWTKlkOQAKFpm2uXGvde6Q=
-before_install:
-  - chmod +x ./scripts/travis_install.sh
-  - chmod +x ./scripts/travis_script.sh
-  - chmod +x ./scripts/travis_after_success.sh
 install:
-  - ./scripts/travis_install.sh
+  - bash ./scripts/travis_install.sh
 script:
-  - ./scripts/travis_script.sh
+  - bash ./scripts/travis_script.sh
 after_success:
-  - ./scripts/travis_after_success.sh
+  - bash ./scripts/travis_after_success.sh
