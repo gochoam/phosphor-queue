@@ -173,9 +173,9 @@ false
 
 The `phosphor-queue` module also provides methods to check whether the elements
 in the queue pass a boolean-valued predicate function. These methods are :
-`some()` to check if at least one of the item passes the function, `every()`
-to test if all the elements pass the function, and `filter()` to retrieve an
-array with those values that passed the function.
+`some()` to check if at least one item passes the function, `every()` to test
+if all the elements pass the function, and `filter()` to retrieve an array with
+those values that passed the function.
 
 ```node
 > q.push(42);
