@@ -106,7 +106,7 @@ queue = require('phosphor-queue')
 
 This imports the `Queue()` constructor to create new queue. Once you create a
 new queue it's straightforward to check some basic properties: the front and
-back elements, the queue size and whether it is empty or not:
+back elements, the queue size and whether or not it is empty:
 
 ```node
 let q = new queue.Queue([0, 1, 2, 3]);
@@ -122,7 +122,7 @@ false
 > 
 ```
 
-The `pop()` method removes the back item and `push()` inserts a new front
+The `pop()` method removes the front item and `push()` inserts a new back
 item:
 
 ```node
@@ -163,7 +163,7 @@ false
 2
 > q.removeAll(19);
 0
-> q.toArray(19);
+> q.toArray();
 [ 43, 45 ]
 
 > q.clear();
@@ -171,11 +171,11 @@ false
 0
 ```
 
-The `phosphor-queue` module also provides methods to check whether the elements
-in the queue pass a boolean-valued predicate function. These methods are :
-`some()` to check if at least one item passes the function, `every()` to test
-if all the elements pass the function, and `filter()` to retrieve an array with
-those values that passed the function.
+The `Queue` object also provides methods to check whether the elements in the
+queue pass a boolean-valued predicate function. These methods are: `some()` to
+check if at least one item passes the function, `every()` to test if all the
+elements pass the function, and `filter()` to retrieve an array with those
+values that passed the function.
 
 ```node
 > q.push(42);
@@ -201,9 +201,9 @@ false
 [ 45 ]
 ```
 
-Two additional methods of PhosphorJS queue that provide extra flexibility are
-`map()` for  mapping a function across the elements and `forEach()` which
-allows executing a callback for each value.
+Two additional methods of the queue that provide extra flexibility are `map()`
+for  mapping a function across the elements and `forEach()` which allows
+executing a callback for each value.
 
 ```node
 > q.map(v => v * 2);
